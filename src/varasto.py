@@ -16,6 +16,13 @@ class Varasto:
             # täyteen ja ylimäärä hukkaan!
             self.saldo = tilavuus
 
+        self.atb3 = None
+        self.atb4 = None
+        self.atb5 = None
+        self.atb6 = None
+        self.atb7 = None
+        self.atb8 = None
+
     # huom: ominaisuus voidaan myös laskea. Ei tarvita erillistä kenttää viela_tilaa tms.
     def paljonko_mahtuu(self):
         return self.tilavuus - self.saldo
@@ -24,7 +31,16 @@ class Varasto:
         if maara < 0:
             return
         if maara <= self.paljonko_mahtuu():
-            self.saldo = self.saldo + maara
+            if maara > 10:
+                if maara > 20:
+                    if maara > 30:
+                        self.saldo = self.saldo + maara
+                    else:
+                        self.saldo = self.saldo + maara
+                else:
+                    self.saldo = self.saldo + maara
+            else:
+                self.saldo = self.saldo + maara
         else:
             self.saldo = self.tilavuus
 
